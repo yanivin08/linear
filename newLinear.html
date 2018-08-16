@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Linear Equation</title>
+		<meta charset="UTF-8"/>
+		<style>
+			body {
+				margin: 0;
+				padding: 0;
+				background-color: rgb(180,180,180);
+				font-family: century gothic;
+			}
+			
+			#divCanvas {
+				position: absolute;
+				left: 2%;
+				top: 6%;
+				width: 62%;
+				height: 85%;
+				background-color: rgb(220,220,220);
+				display: block;
+				box-shadow: 3px 3px 5px 1px rgba(0,0,0,0.3);
+			}
+			canvas {
+				position: absolute;
+				left: 4%;
+				top: 4%;
+			}
+			#linearEQ{
+				position: absolute;
+				left: 67%;
+				top: 16%;
+				width: 30%;
+				height: 25%;
+				background-color: rgb(57,157,117);
+				box-shadow: 3px 3px 5px 1px rgba(0,0,0,0.3);
+			}
+			#lptitle{
+				position: absolute;
+				width: 100%;
+				height: 28%;
+				background-color: rgb(42,116,86);
+			}
+			#linearPts {
+				position: absolute;
+				color: white;
+				font-size:calc(.9vw + .9vh);
+				left: 31%;
+				top: 8%;
+			}
+			#fxPoint, #fyPoint, #sxPoint, #syPoint {
+				position: absolute;
+				border: none;
+				width: 25%;
+				height: 12%;
+				text-indent: 10px;
+			}
+			#fxPoint{left: 35%;	top: 48%;}
+			#fyPoint{left: 65%;	top: 48%;}
+			#sxPoint{left: 35%;	top: 65%;}
+			#syPoint{left: 65%;	top: 65%;}
+			#x1{
+				position: absolute;
+				left:45%;
+				top:29%;
+				font-size:calc(.7vw + .7vh);
+				color: white;
+				font-weight:normal;
+				font-style: italic;
+			}
+			#y1{
+				position: absolute;
+				left:75%;
+				top:29%;
+				font-size:calc(.7vw + .7vh);
+				color: white;
+				font-weight:normal;
+				font-style: italic;
+			}
+			#fp{
+				position: absolute;
+				left: 8%;
+				top: 45%;
+				font-size:calc(.65vw + .65vh);
+				color: white;
+			}
+			#sp{
+				position: absolute;
+				left: 8%;
+				top: 61%;
+				font-size:calc(.65vw + .65vh);
+				color: white;
+			}
+			#dtaPoint{
+				position: absolute;
+				left: 67%;
+				top: 44.5%;
+				width: 30%;
+				height: 18%;
+				background-color: rgb(217,71,113);
+				box-shadow: 3px 3px 5px 1px rgba(0,0,0,0.3);
+			}
+			#dptitle{
+				position: absolute;
+				width: 100%;
+				height: 35%;
+				background-color: rgb(197,41,86);
+			}
+			#dataPters{
+				position: absolute;
+				color: white;
+				font-size:calc(.85vw + .85vh);
+				left: 35%;
+				top: 7%;
+			}
+			#txPoint, #tyPoint {
+				position: absolute;
+				border: none;
+				width: 25%;
+				height: 17%;
+				text-indent: 10px;
+			}
+			#txPoint{left: 35%;	top: 60%;}
+			#tyPoint{left: 65%;	top: 60%;}
+			#x2{
+				position: absolute;
+				left:45%;
+				top:36%;
+				font-size:calc(.7vw + .7vh);
+				color: white;
+				font-weight:normal;
+				font-style: italic;
+			}
+			#y2{
+				position: absolute;
+				left:75%;
+				top:36%;
+				font-size:calc(.7vw + .7vh);
+				color: white;
+				font-weight:normal;
+				font-style: italic;
+			}
+			#dp {
+				position: absolute;
+				left: 8%;
+				top: 55%;
+				font-size:calc(.65vw + .65vh);
+				color: white;
+			}
+			#divResult{
+				position: absolute;
+				left: 67%;
+				top: 66%;
+				width: 30%;
+				height: 25%;
+				background-color: rgb(89,89,89);
+				box-shadow: 3px 3px 5px 1px rgba(0,0,0,0.3);
+			}
+			#rsTitle{
+				position: absolute;
+				width: 100%;
+				height: 25%;
+				background-color: rgb(50,50,50);
+			}
+			#rst{
+				position: absolute;
+				color: white;
+				font-size:calc(.9vw + .9vh);
+				left: 43%;
+				top: 5%;
+			}
+			#divResult p{
+				position: absolute;
+				
+				font-size:calc(.65vw + .65vh);
+			}
+			#rSlope {
+				top: 30%;
+				left: 37%;
+				color: white;
+			}
+			#rYIC1 {
+				top: 41%;
+				left: 18%;
+				color: white;
+			}
+			#rYIC2 {
+				top: 52%;
+				left: 15%;
+				color: white;
+			}
+			#rCon{
+				top: 63%;
+				left: 27%;
+				color: white;
+			}
+			#arSlope {
+				top: 30%;
+				left: 53%;
+				color: white;
+			}
+			#arYIC1 {
+				top: 41%;
+				left: 53%;
+				color: rgb(57,157,117);
+			}
+			#arYIC2 {
+				top: 52%;
+				left: 53%;
+				color: rgb(221,93,113);
+			}
+			#arCon{
+				top: 63%;
+				left: 53%;
+				width: 30%;
+				color: white;
+			}
+			#divheader{
+				position: absolute;
+				left: 67%;
+				top: 6%;
+				height: 7%;
+				width: 30%;
+				background-color: rgb(60,60,60);
+				box-shadow: 3px 3px 5px 1px rgba(0,0,0,0.3);
+			}
+			#title{
+				position: absolute;
+				left: 21%;
+				
+				color: white;
+				font-size:calc(1.2vw + 1.2vh);
+			}
+			#footerNote{
+				position:absolute;
+				width: 100%;
+				height: 3%;
+				top: 97%;
+				background-color: rgb(50,50,50);
+			}
+			
+		</style>
+	</head>
+	<body>
+	<div id="divheader">
+		<h1 id="title">LINEAR EQUATION</h1>
+	</div>
+	<div id="divInput">
+		<div id="linearEQ">
+			<div id="lptitle"><h1 id="linearPts">LINEAR POINTS</h1></div>
+			<h1 id="x1">X</h1>
+			<h1 id="y1">Y</h1>
+			<p id="fp">First Point:</p>
+			<input class="points" id="fxPoint" type="number" onchange="fPoints()" min="-350" max="350">
+			<input class="points" id="fyPoint" type="number" onchange="fPoints()" min="-350" max="350">
+			<p id="sp">Second Point:</p>
+			<input class="points" id="sxPoint" type="number" onchange="fPoints()" min="-350" max="350">
+			<input class="points" id="syPoint" type="number" onchange="fPoints()" min="-350" max="350">
+		</div>
+		<div id="dtaPoint">
+			<div id="dptitle"><h1 id="dataPters">DATA POINTS</h1></div>
+			<h1 id="x2">X</h1>
+			<h1 id="y2">Y</h1>
+			<p id="dp">Data Point:</p>
+			<input class="points" id="txPoint" type="number" onchange="fPoints()" min="-350" max="350">
+			<input class="points" id="tyPoint" type="number" onchange="fPoints()" min="-350" max="350">
+		</div>
+	</div>
+	<div id="divCanvas">
+		<canvas id="plotCanvas"></canvas>
+		<canvas id="inputCanvas"></canvas>
+	</div>
+	
+	<div id="divResult">
+		<div id="rsTitle"><h1 id="rst">RESULT</h1></div>
+		<p id="rSlope">Slope:</p>
+		<p id="arSlope">20</p>
+		<p id="rYIC1">Y-Intercept(line):</p>
+		<p id="arYIC1">20</p>
+		<p id="rYIC2">Y-Intercept(point):</p>
+		<p id="arYIC2">20</p>
+		<p id="rCon">Conclusion:</p>
+		<p id="arCon">The data point is below the line.</p>
+	</div>
+	<div id="footerNote"></div>
+	<script type="text/javascript">
+	
+		var plot = document.getElementById("plotCanvas"),
+			points = document.getElementById("inputCanvas"),
+			pltCtx = plot.getContext("2d"),
+			pntCtx = points.getContext("2d"),
+			cWidth = plot.width = 720,
+			cHeight = plot.height = 720;
+			
+			
+		//plot.style.border = "1px solid rgb(178,227,228)";
+		/*pltCtx.fillStyle = 'rgb(255,255,255)';
+		pltCtx.fillRect(0, 0, cWidth, cHeight);*/
+		
+		//create a cartesian plane----------------------------
+		//y-axix
+		pltCtx.beginPath();
+		pltCtx.moveTo(0,360);
+		pltCtx.lineTo(720,360);
+		pltCtx.lineWidth = 3;
+		pltCtx.strokeStyle = 'rgb(180,180,180)';
+		pltCtx.stroke();
+		
+		var yAxis=20, ymove=20;
+		var ynum=340;
+		
+		for(var i=0;i<35;i++){	
+			//draw lines
+			pltCtx.beginPath();
+			pltCtx.moveTo(355,yAxis);
+			pltCtx.lineTo(365,yAxis);
+			pltCtx.lineWidth = 1;
+			pltCtx.strokeStyle = 'rgb(180,180,180)';
+			pltCtx.stroke();
+			
+			pltCtx.beginPath();
+			pltCtx.moveTo(0,yAxis);
+			pltCtx.lineTo(720,yAxis);
+			pltCtx.lineWidth = 1;
+			pltCtx.strokeStyle = 'rgb(200,200,200)';
+			pltCtx.stroke();
+			
+			//add numbers
+			if(isEven(i)){
+				pltCtx.fillStyle = "rgb(150,150,150)";
+				pltCtx.textAlign = "left";
+				pltCtx.font = "10px Calibri";
+				pltCtx.fillText(ynum,370,yAxis);
+			}
+			ynum -= 20;
+			yAxis += ymove;
+		}
+		
+		//x-axis
+		pltCtx.beginPath();
+		pltCtx.moveTo(360,0);
+		pltCtx.lineTo(360,720);
+		pltCtx.lineWidth = 3;
+		pltCtx.strokeStyle = 'rgb(180,180,180)';
+		pltCtx.stroke();
+		
+		var xAxis=20, xmove=20;
+		var xnum = -340;
+		
+		for(var i=0;i<35;i++){
+			//draw lines
+			pltCtx.beginPath();
+			pltCtx.moveTo(xAxis,355);
+			pltCtx.lineTo(xAxis,365);
+			pltCtx.lineWidth = 1;
+			pltCtx.strokeStyle = 'rgb(180,180,180)';
+			pltCtx.stroke();
+			
+			pltCtx.moveTo(xAxis,0);
+			pltCtx.lineTo(xAxis,720);
+			pltCtx.lineWidth = 1;
+			pltCtx.strokeStyle = 'rgb(200,200,200)';
+			pltCtx.stroke();
+			//add numbers
+			if(isEven(i)){
+				pltCtx.fillStyle = "rgb(150,150,150)";
+				pltCtx.textAlign = "center";
+				pltCtx.font = "10px Calibri";
+				pltCtx.fillText(xnum,xAxis,350);
+			}
+			xnum += 20;
+			xAxis += xmove;
+		}
+		//---------------------------------------------------
+		//get the elements for all data points
+		var firstPx = document.getElementById("fxPoint"),
+			firstPy = document.getElementById("fyPoint"),
+			secPx = document.getElementById("sxPoint"),
+			secPy = document.getElementById("syPoint"),
+			tstPx = document.getElementById("txPoint"),
+			tstPy = document.getElementById("tyPoint"),
+			slope = 0, yIC = 0;
+		//get the elements where result should be printed out	
+		var rstSLP = document.getElementById("arSlope"),
+			rstYIC1 = document.getElementById("arYIC1"),
+			rstYIC2 = document.getElementById("arYIC2"),
+			rstCON = document.getElementById("arCon");
+		//pntCtx
+		pWidth = points.width = 720,
+		pHeight = points.height = 720;
+		pntCtx.translate(360,360);
+		pntCtx.scale(1, -1);
+		//check if event
+		function isEven(n){
+			if(n%2==0){
+				return true;
+			}else{
+				return false;
+			}
+		}
+		//create a circle for each data points
+		function dtaPoints(x,y,r,color){
+			
+			pntCtx.beginPath();
+			pntCtx.arc(x,y,r,0,2*Math.PI);
+			pntCtx.fillStyle = color;
+			pntCtx.fill();
+			pntCtx.closePath();
+			
+		}
+
+		function createLine(x1,y1,x2,y2,clr,size,lstyle){
+			
+			pntCtx.beginPath();
+			pntCtx.moveTo(x1,y1);
+			pntCtx.lineTo(x2,y2);
+			pntCtx.closePath();
+			pntCtx.setLineDash(lstyle);
+			pntCtx.lineWidth = size;
+			pntCtx.strokeStyle = clr;
+			pntCtx.stroke();
+		
+		}
+		
+		//create a line and call the circle function
+		function plotPoints(fx,fy,tx,ty,dx,dy,pMinx,pMiny,pMaxx,pMaxy){
+
+			pntCtx.clearRect(-360,-360,pWidth,pHeight);
+			
+			dtaPoints(fx,fy,6,"rgb(57,157,117)");
+			dtaPoints(tx,ty,6,"rgb(57,157,117)");
+			dtaPoints(dx,dy,7,"rgb(217,71,113)");
+			
+			createLine(fx,fy,tx,ty,'rgb(57,157,117)',7,[0,0]);
+			createLine(pMinx,pMiny,pMaxx,pMaxy,'rgb(217,71,113)',2,[8,15]);
+			
+			/*pntCtx.beginPath();
+			pntCtx.moveTo(fx,fy);
+			pntCtx.lineTo(tx,ty);
+			pntCtx.closePath();
+			pntCtx.lineWidth = 7;
+			pntCtx.strokeStyle = 'rgb(57,157,117)';
+			pntCtx.stroke();*/
+		
+		}
+		
+		
+		
+		//onchange funtion for each inputs
+		function fPoints(){
+			
+			startX = firstPx.value;
+			startY = firstPy.value;
+			endX = secPx.value;
+			endY = secPy.value;
+			dtaX = tstPx.value;
+			dtaY = tstPy.value;
+			
+			findSlope(firstPx.value,firstPy.value,secPx.value,secPy.value);
+			firstY = findYic(firstPx.value,firstPy.value);
+			secY = findYic(tstPx.value,tstPy.value);
+			
+			minY = findY(360,secY);
+			maxY = findY(-360,secY);
+			
+			plotPoints(startX,startY,endX,endY,dtaX,dtaY,360,minY,-360,maxY);
+			
+			rstSLP.innerText = slope;
+			rstYIC1.innerText = firstY;
+			rstYIC2.innerText = secY;
+			
+			//input results
+			if(startX != endX){
+				console.log('yow')
+				if(firstY > secY){
+					rstCON.innerText = "The data point is below the line."
+				}else if(firstY < secY){
+					rstCON.innerText = "The data point is above the line."
+				}else{
+					rstCON.innerText = "The data point is within the line."
+				}
+			}else{
+				console.log('hey');
+				if(dtaX > startX){
+					rstCON.innerText = "The data point is at the right side of the line."
+				}else if(dtaX > startX){
+					rstCON.innerText = "The data point is at the left side of the line."
+				}else{
+					rstCON.innerText = "The data point is within the line."
+				}
+			}
+		}
+		
+		//findY
+		function findY(x,b){
+			return (slope*x)+b;
+		}
+		//find the slope
+		function findSlope(x1,y1,x2,y2) {
+			slope = (y1-y2)/(x1-x2);
+		}
+		//find the y-intercept
+		function findYic(x,y){
+			return y - (slope*x);
+		}
+		// enables mousewheel on input number
+		function mwHandler(e){
+			var e = window.event || e;
+			var delta = Math.max(-1, Math.min(1, (e.wheelDelta || -e.detail)));
+		}
+		document.addEventListener("mousewheel", mwHandler, false);
+
+		
+	</script>
+	</body>
+</html>
